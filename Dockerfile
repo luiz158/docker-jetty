@@ -11,10 +11,12 @@ RUN apt-get update && \
     apt-get install -y wget
 
 # Download and install jetty
-RUN wget http://download.eclipse.org/jetty/stable-9/dist/jetty-distribution-9.2.4.v20141103.tar.gz && \
-    tar -xzvf jetty-distribution-9.2.4.v20141103.tar.gz && \
-    rm -rf jetty-distribution-9.2.4.v20141103.tar.gz && \
-    mv jetty-distribution-9.2.4.v20141103/ /opt/jetty
+ENV JETTY_VERSION 9.2.4
+ENV RELEASE_DATE v20141103
+RUN wget http://download.eclipse.org/jetty/stable-9/dist/jetty-distribution-${JETTY_VERSION}.${RELEASE_DATE}.tar.gz && \
+    tar -xzvf jetty-distribution-${JETTY_VERSION}.${RELEASE_DATE}.tar.gz && \
+    rm -rf jetty-distribution-${JETTY_VERSION}.${RELEASE_DATE}.tar.gz && \
+    mv jetty-distribution-${JETTY_VERSION}.${RELEASE_DATE}/ /opt/jetty
 
 # Configure Jetty user and clean up install
 RUN useradd jetty && \
