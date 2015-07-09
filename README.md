@@ -1,6 +1,6 @@
 # Jetty Docker Container
 
-This docker image contains Oracle Java 7 with Jetty 9.
+This docker image contains OpenJDK 8 with Jetty 9.3.0 (build 2015-06-12).
 
 ## Usage
 

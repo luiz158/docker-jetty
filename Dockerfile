@@ -1,4 +1,4 @@
-FROM dockerfile/java:oracle-java7
+FROM java:8-jdk
 MAINTAINER Nicholas Iaquinto <nickiaq@gmail.com>
 
 # In case someone loses the Dockerfile
@@ -11,8 +11,8 @@ RUN apt-get update && \
     apt-get install -y wget
 
 # Download and install jetty
-ENV JETTY_VERSION 9.2.4
-ENV RELEASE_DATE v20141103
+ENV JETTY_VERSION 9.3.0
+ENV RELEASE_DATE v20150612
 RUN wget http://download.eclipse.org/jetty/stable-9/dist/jetty-distribution-${JETTY_VERSION}.${RELEASE_DATE}.tar.gz && \
     tar -xzvf jetty-distribution-${JETTY_VERSION}.${RELEASE_DATE}.tar.gz && \
     rm -rf jetty-distribution-${JETTY_VERSION}.${RELEASE_DATE}.tar.gz && \
